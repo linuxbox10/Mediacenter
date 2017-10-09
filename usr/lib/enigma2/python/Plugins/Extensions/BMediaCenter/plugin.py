@@ -56,7 +56,6 @@ class DMC_MainMenu(Screen):
 		list.append((_("My Pictures"), "MC_PictureViewer", "menu_pictures", "50"))
 		list.append((_("Web Radio"), "MC_WebRadio", "menu_radio", "50"))
 		list.append((_("VLC Player"), "MC_VLCPlayer", "menu_vlc", "50"))
-		list.append((_("Weather Info"), "MC_WeatherInfo", "menu_weather", "50"))
 		list.append((_("Settings"), "MC_Settings", "menu_settings", "50"))
 		list.append(("Exit", "Exit", "menu_exit", "50"))
 		self["menu"] = List(list)
@@ -115,13 +114,10 @@ class DMC_MainMenu(Screen):
 		elif self["menu"].getIndex() == 6:
 			self["left"].instance.setPixmapFromFile(mcpath +"MenuIconRadiosw.png")
 			self["middle"].instance.setPixmapFromFile(mcpath +"MenuIconVLC.png")
-			self["right"].instance.setPixmapFromFile(mcpath +"MenuIconWeathersw.png")
 		elif self["menu"].getIndex() == 7:
 			self["left"].instance.setPixmapFromFile(mcpath +"MenuIconVLCsw.png")
-			self["middle"].instance.setPixmapFromFile(mcpath +"MenuIconWeather.png")
 			self["right"].instance.setPixmapFromFile(mcpath +"MenuIconSettingssw.png")
 		elif self["menu"].getIndex() == 8:
-			self["left"].instance.setPixmapFromFile(mcpath +"MenuIconWeathersw.png")
 			self["middle"].instance.setPixmapFromFile(mcpath +"MenuIconSettings.png")
 			self["right"].instance.setPixmapFromFile(mcpath +"MenuIconMusicsw.png")
 #		if config.plugins.mc_global.vfd.value == "on":
@@ -154,9 +150,6 @@ class DMC_MainMenu(Screen):
 					self.session.open(MC_VLCServerlist)
 				else:
 					self.session.open(MessageBox,"Error: VLC-Player Plugin not installed ...",  MessageBox.TYPE_INFO)
-			elif selection[1] == "MC_WeatherInfo":
-				from MC_WeatherInfo import MC_WeatherInfo
-				self.session.open(MC_WeatherInfo)
 			elif selection[1] == "MC_Settings":
 				from MC_Settings import MC_Settings
 				self.session.open(MC_Settings)
